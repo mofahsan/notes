@@ -1,0 +1,63 @@
+Docker
+
+Docker build -t image name .
+
+Here -t is tag for name followed by image name
+-----------------
+
+Docker run -it/-d -p 9000:3000 imageName
+
+Here  D is detached mode and it is interactive mode
+
+-----------------
+
+
+Docker ps to list all running containers
+
+Docker logs containerId = check logs inside container
+
+Attach to container 
+
+docker exec -it ae5b8df42b6a /bin/bash
+
+docker-compose exec sameersbn/postgresql:9.6-1 psql -U ladbrookUser -d postgres -c “DROP DATABASE ladbrookDb ;”
+
+It here is interactive mode followed by container id
+
+
+Cat package.json to read its contents once inside the container
+
+--------------
+Remove unneccessary builds
+
+ docker rmi -f $(docker images -f "dangling=true" -q)
+
+--------------
+Commands Given
+
+docker-compose up -d && docker-compose logs --follow  
+
+Check logs
+-------
+docker-compose down &&  docker-compose build
+
+
+Single command
+docker-compose down &&  docker-compose build && docker-compose up -d && docker-compose logs --follow  
+
+
+Create build of docker 
+-------
+
+Edit docker container without rebuilding
+
+Add an extension remote explorer 
+Make build one time and run the container 
+Stop all unnecessary containers and only run Postgres init and base 
+Edit and run the api gateway and manualy run the auth service or any other service if required 
+
+Run the services directly from the terminal after the edit
+
+Add custom port otherwise it'll default to 8000
+
+Also optional : create configuration file before if container doesnt work

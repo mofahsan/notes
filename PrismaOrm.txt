@@ -1,0 +1,47 @@
+Initiate prisma
+ npx  prisma init
+
+
+Migration command
+
+ npx prisma migrate dev --name init
+
+
+--------
+Create only Prisma command
+
+prisma migrate dev --name initial-migration --create-only
+
+Apply Prisma migration
+npx prisma migrate dev 
+-------------------------
+
+Sometimes database may be updated but Prisma still recognising updated db then run
+
+Npx prisma generate 
+
+To update Prisma memory
+---------------
+
+the first object is for selecting which client are we using it is prisma client
+
+second is the db details 
+which db provider are we using it could be mysql / postgres or any other database
+
+and the database Url which contains our username and password for the database as well as the port at which our db is available for connection and then the database name that we want to store at .
+
+third and the last is our model / schema that we have defined to tell prisma that is how we want our data to be stored in table
+
+
+------------
+Commands used by Rohit
+npx prisma migrate deploy --preview-feature   (1)
+
+npx prisma migrate resolve --rolled-back 20220713103843_test   (2)
+
+npx prisma migrate reset  dev           	(3) command to apply newly created migration data udjayega
+
+npx prisma migrate dev --name test        	(4) create only
+
+
+When migration fails run command 1 first it'll fail then run command 2 and then command 1 again
